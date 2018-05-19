@@ -1,16 +1,17 @@
-#ITEMS:
-#Categories
- -- Read +
+# ITEMS: #
+### Categories ### 
+  
+* [x] Read 
 
--- Create +
+* [x] Create 
 
--- Update +
+*  [x] Update 
 
--- Delete +
+*  [x] Delete 
 
--- Categories items
+* Categories items
 
-#Items
+### Items ###
 -- Read
 
 -- Create
