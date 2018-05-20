@@ -14,7 +14,7 @@
 
 <div class="container">
 
-    <form action="{{route('categories.update', ['id' => $category->id])}}" method="POST">
+    <form action="/category/{{$category->id}}" method="POST">
        @method('PUT')
         @csrf
         <div class="form-group">

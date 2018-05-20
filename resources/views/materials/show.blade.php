@@ -11,21 +11,28 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand btn btn-primary" href="{{route('categories.create')}}">ivesti nauja kategorija</a>
-
-
+    <a class="navbar-brand " href="#">KATEGORIJA: {{$category->title}}</a>
+    <a class="navbar-brand btn btn-secondary" href="/">Atgal</a>
 
 </nav>
 
 
 
 <div class="container">
-    <h1>Kategorijos</h1><br>
-<ol>
-@foreach($category as $kategorija)
-    <li><a class="btn btn-info mt-2" href="categories/{{$kategorija->id}}">{{$kategorija->title}}</a></li>
-    @endforeach
-</ol>
+
+
+            <h3><a class="btn btn-info" href="{{$category->id}}/items">Rodyti visus items is {{$category->title}}</a> <a class="btn btn-warning btn-sm" href="{{$category->id}}/edit">Edit category</a>
+
+
+    <form class="float-right" action="{{$category->id}}/destroy" method="POST">
+        @method('DELETE')
+        {{csrf_field()}}
+        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+    </form> </h3>
+
+
+
+
 </div>
 </body>
 </html>

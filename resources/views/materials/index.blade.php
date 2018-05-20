@@ -10,20 +10,22 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand btn btn-primary" href="/create">ivesti nauja kategorija</a>
+
+
+
+</nav>
+
 
 
 <div class="container">
-
-    <form action="{{route('categories.store')}}" method="POST">
-        @csrf
-        <div class="form-group">
-            <label >Pavadinimas</label>
-            <input type="text" class="form-control" name="name" placeholder="..." >
-        </div>
-        <button type="submit" class="btn btn-primary">Sukurti</button>
-    </form>
-<br>
-    <a class="navbar-brand btn btn-secondary" href="/">atgal</a>
+    <h1>Kategorijos</h1><br>
+<ol>
+@foreach($category as $kategorija)
+    <li><a class="btn btn-info mt-2" href="category/{{$kategorija->id}}">{{$kategorija->title}}</a></li>
+    @endforeach
+</ol>
 </div>
 </body>
 </html>

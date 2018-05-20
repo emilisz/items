@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Item;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CategoriesController extends Controller
 {
@@ -12,9 +15,10 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
         $category = Category::all();
+
        return view('categories.index', compact('category'));
     }
 
@@ -23,7 +27,7 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
 return view('categories.create');
     }
@@ -34,12 +38,12 @@ return view('categories.create');
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $category = new Category();
         $category->title = $request->name;
         $category->save();
-        return redirect('/');
+        return redirect('/categories');
     }
 
     /**
@@ -48,10 +52,11 @@ return view('categories.create');
      * @param  \App\Category  $item
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id): View
     {
         $category = Category::find($id);
-        return view('categories.show', compact('category'));
+        $item = Item::all();
+        return view('categories.show', compact('category', 'item'));
     }
 
     /**
@@ -60,7 +65,7 @@ return view('categories.create');
      * @param  \App\Category  $item
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id): View
     {
         $category = Category::find($id);
 
@@ -77,12 +82,12 @@ return view('categories.create');
 
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
         $category = Category::find($id);
         $category->title = $request->name;
         $category->save();
-        return redirect('/');
+        return redirect('/categories');
     }
 
     /**
@@ -91,9 +96,9 @@ return view('categories.create');
      * @param  \App\Category  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id): RedirectResponse
     {
         $category = Category::destroy($id);
-        return redirect('/');
+        return redirect('/categories');
     }
 }

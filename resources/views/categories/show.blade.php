@@ -11,8 +11,8 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand btn btn-primary" href="#">ivesti nauja item</a>
-    <a class="navbar-brand btn btn-secondary" href="/">atgal</a>
+    <a class="navbar-brand " href="#">KATEGORIJA: {{$category->title}}</a>
+    <a class="navbar-brand btn btn-secondary" href="{{route('categories.index')}}">Atgal</a>
 
 </nav>
 
@@ -21,14 +21,25 @@
 <div class="container">
 
 
-            <h3><a class="btn btn-info" href="{{$category->id}}">{{$category->title}}</a> <a class="btn btn-warning btn-sm" href="{{$category->id}}/edit">Edit category</a>
+            <h3><a class="btn btn-primary" href="{{$category->title}}/items">{{$category->title}}:</a> <a class="btn btn-warning btn-sm" href="{{route('categories.edit', ['id' => $category->id])}}">Edit category</a>
+                <form class="float-right" action="{{route('categories.destroy',  ['id' => $category->id])}}" method="POST">
+                    @method('DELETE')
+                    {{csrf_field()}}
+                    <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                </form> </h3>
 
 
-    <form class="float-right" action="{{$category->id}}/destroy" method="POST">
-        @method('DELETE')
-        {{csrf_field()}}
-        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
-    </form> </h3>
+    {{--   ITEMS   --}}
+                <ol>
+                    @foreach($item as $kategorija)
+                        <li class="mt-3 mb-3"><a class="btn btn-info mt-2" href="{{route('items.show', ['id' => $kategorija->id])}}">{{$kategorija->name}}</a>
+
+
+                        </li>
+                    @endforeach
+                </ol>
+
+
 
 
 
