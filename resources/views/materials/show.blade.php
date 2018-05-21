@@ -11,7 +11,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand " href="#">KATEGORIJA: {{$category->title}}</a>
+    <a class="navbar-brand " href="#">MEDZIAGA: {{$material->material}}</a>
     <a class="navbar-brand btn btn-secondary" href="/">Atgal</a>
 
 </nav>
@@ -21,10 +21,10 @@
 <div class="container">
 
 
-            <h3><a class="btn btn-info" href="{{$category->id}}/items">Rodyti visus items is {{$category->title}}</a> <a class="btn btn-warning btn-sm" href="{{$category->id}}/edit">Edit category</a>
+            <h3><a class="btn btn-info" href="{{$material->id}}/items">Rodyti visus items is {{$material->material}}</a> <a class="btn btn-warning btn-sm" href="{{$material->id}}/edit">Edit material</a>
 
 
-    <form class="float-right" action="{{$category->id}}/destroy" method="POST">
+    <form class="float-right" action="{{route('materials.destroy',  ['id' => $material->id])}}" method="POST">
         @method('DELETE')
         {{csrf_field()}}
         <input type="submit" class="btn btn-danger btn-sm" value="Delete">

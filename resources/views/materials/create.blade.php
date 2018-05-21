@@ -14,7 +14,7 @@
 
 <div class="container">
 
-    <form action="/create" method="POST">
+    <form action="{{route('materials.store')}}" method="POST">
         @csrf
         <div class="form-group">
             <label >Pavadinimas</label>

@@ -11,7 +11,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand btn btn-primary" href="/create">ivesti nauja kategorija</a>
+    <a class="navbar-brand btn btn-primary" href="{{route('materials.create')}}">ivesti nauja material</a>
 
 
 
@@ -20,10 +20,10 @@
 
 
 <div class="container">
-    <h1>Kategorijos</h1><br>
+    <h1>Medziagos:</h1><br>
 <ol>
-@foreach($category as $kategorija)
-    <li><a class="btn btn-info mt-2" href="category/{{$kategorija->id}}">{{$kategorija->title}}</a></li>
+@foreach($material as $kategorija)
+    <li><a class="btn btn-info mt-2" href="materials/{{$kategorija->id}}">{{$kategorija->material}}</a></li>
     @endforeach
 </ol>
 </div>

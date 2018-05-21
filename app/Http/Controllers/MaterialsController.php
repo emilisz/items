@@ -14,7 +14,9 @@ class MaterialsController extends Controller
      */
     public function index()
     {
-        //
+        $material = Material::all();
+
+        return view('materials.index', compact('material'));
     }
 
     /**
@@ -24,7 +26,7 @@ class MaterialsController extends Controller
      */
     public function create()
     {
-        //
+        return view('materials.create');
     }
 
     /**
@@ -35,7 +37,10 @@ class MaterialsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $material = new Material();
+        $material->material = $request->name;
+        $material->save();
+        return redirect('/materials');
     }
 
     /**
@@ -44,9 +49,11 @@ class MaterialsController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function show(Material $material)
+    public function show($id)
     {
-        //
+        $material = Material::find($id);
+
+        return view('materials.show', compact('material'));
     }
 
     /**
@@ -55,9 +62,11 @@ class MaterialsController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function edit(Material $material)
+    public function edit($id)
     {
-        //
+        $material = Material::find($id);
+
+        return view('materials.edit', compact('material'));
     }
 
     /**
@@ -67,9 +76,12 @@ class MaterialsController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Material $material)
+    public function update(Request $request, $id)
     {
-        //
+        $material = Material::find($id);
+        $material->material = $request->name;
+        $material->save();
+        return redirect('/materials');
     }
 
     /**
@@ -78,8 +90,9 @@ class MaterialsController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Material $material)
+    public function destroy($id)
     {
-        //
+        $material = Material::destroy($id);
+        return redirect('/materials');
     }
 }

@@ -14,13 +14,13 @@
 
 <div class="container">
 
-    <form action="/category/{{$category->id}}" method="POST">
+    <form action="/materials/{{$material->id}}" method="POST">
        @method('PUT')
         @csrf
         <div class="form-group">
             <label >Pavadinimas</label>
-            <input type="hidden" class="form-control" name="name" value="{{$category->id}}" >
-            <input type="text" class="form-control" name="name" value="{{$category->title}}" >
+            <input type="hidden" class="form-control" name="name" value="{{$material->id}}" >
+            <input type="text" class="form-control" name="name" value="{{$material->material}}" >
         </div>
         <button type="submit" class="btn btn-primary">Saugoti</button>
     </form>

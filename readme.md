@@ -9,7 +9,15 @@
 
 *  [x] Delete 
 
-* Categories items
+### Materials ### 
+  
+* [x] Read 
+
+* [x] Create 
+
+*  [x] Update 
+
+*  [x] Delete 
 
 ### Items ###
 -- Read

@@ -85,6 +85,7 @@
                 <div class="links">
 
                     <a href="/categories">Categories</a>
+                    <a href="/materials">Materials</a>
                     <a href="https://github.com/emilisz/items">GitHub</a>
                 </div>
             </div>
