@@ -17,7 +17,7 @@ class CategoriesController extends Controller
      */
     public function index(): View
     {
-        $category = Category::all();
+        $category = Category::OrderBy('title', 'desc')->paginate(3);
 
        return view('categories.index', compact('category'));
     }
